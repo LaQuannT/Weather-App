@@ -1,6 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Nunito:ital@1&display=swap');
+
+:root {
+  --clr-bckgrd: #43aefc;
+}
+
 html {
   box-sizing: border-box;
   font-size: 16px;
+  font-family: 'Nunito', 'Montserrat', sans-serif;
 }
 
 *,
@@ -32,4 +39,137 @@ ul {
 img {
   max-width: 100%;
   height: auto;
+}
+
+body {
+  background-color: var(--clr-bckgrd);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  width: 400px;
+  background: #fff;
+  border-radius: 7px;
+  box-shadow: 7px 7px 20px rgba(0, 0, 0, 0.2);
+}
+
+header {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--clr-bckgrd);
+  padding: 16px 15px;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#app-name:hover {
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.scale-options {
+  font-size: 1.2rem;
+}
+
+#celsius,
+#fahrenheit {
+  color: rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+}
+
+form {
+  margin: 25px 10px 30px;
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+
+.active {
+  display: flex;
+}
+
+form > input,
+button {
+  width: 80%;
+  height: 40px;
+  text-align: center;
+  border-radius: 7px;
+  font-size: 1.1rem;
+  font-family: inherit;
+}
+
+form > input {
+  background-color: whitesmoke;
+  border: transparent;
+}
+
+#submit-btn {
+  background-color: var(--clr-bckgrd);
+  color: #ffff;
+  border: 1px solid whitesmoke;
+}
+
+#submit-btn:hover {
+  background-color: whitesmoke;
+  color: var(--clr-bckgrd);
+}
+
+.weather-content {
+  margin: 30px 0 10px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.temp {
+  font-size: 4rem;
+  font-weight: 600;
+}
+
+.weather-conditions {
+  font-size: 1.3rem;
+}
+
+.location {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--clr-bckgrd);
+}
+
+.extra-info {
+  display: none;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.active-grid {
+  display: grid;
+}
+
+.extra-info-left,
+.extra-info-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 0;
+  border-top: 3px solid whitesmoke;
+}
+
+.extra-info-left {
+  border-right: 3px solid whitesmoke;
+}
+
+.extra-info-left > span,
+.extra-info-right > span {
+  color: var(--clr-bckgrd);
+  font-size: 2rem;
 }

@@ -1,1 +1,2 @@
-console.log('I am working!');
+const form = document.querySelector('form');
+form?.classList.add('active');
