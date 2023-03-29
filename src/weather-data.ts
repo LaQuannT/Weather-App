@@ -1,3 +1,4 @@
+import { DOM } from './DOM';
 import { dataHandler } from './functions';
 
 export const getWeatherData = async (location: string) => {
@@ -7,7 +8,17 @@ export const getWeatherData = async (location: string) => {
       { mode: 'cors' }
     );
     const data = await response.json();
-    dataHandler(data);
+    let buffer = dataHandler(data);
+    console.log(data);
+
+    DOM.renderData(
+      buffer.currentTemp('celsius'),
+      buffer.weatherCondition(),
+      buffer.formatLocation(),
+      buffer.feelslikeTemp('celsius'),
+      buffer.currentHumidity(),
+      buffer.weathericon()
+    );
   } catch (error) {
     alert('Please enter a vaild location!');
   }
