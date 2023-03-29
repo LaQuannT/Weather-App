@@ -1,4 +1,4 @@
-import { dataHandler } from './index';
+import { dataHandler } from './functions';
 
 export const getWeatherData = async (location: string) => {
   try {
@@ -7,7 +7,6 @@ export const getWeatherData = async (location: string) => {
       { mode: 'cors' }
     );
     const data = await response.json();
-    console.log(data);
     dataHandler(data);
   } catch (error) {
     alert('Please enter a vaild location!');

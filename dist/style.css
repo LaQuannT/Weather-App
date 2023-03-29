@@ -90,10 +90,6 @@ form {
   align-items: center;
 }
 
-.active {
-  display: flex;
-}
-
 form > input,
 button {
   width: 80%;
@@ -129,6 +125,9 @@ form > input {
   gap: 16px;
 }
 
+.active {
+  display: flex;
+}
 .temp {
   font-size: 4rem;
   font-weight: 600;
