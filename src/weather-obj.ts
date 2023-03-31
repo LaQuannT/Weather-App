@@ -14,19 +14,16 @@ export class CurrentWeather {
   weatherCondition() {
     return this._condition;
   }
-  currentTemp(unit: 'celsius' | 'fahrenheit') {
-    return unit === 'celsius' ? this._tempC : this._tempC * 1.8 + 32;
+  currentTemp() {
+    return this._tempC;
   }
-  // create a function so the i dont break the DRY rule
-  feelslikeTemp(unit: 'celsius' | 'fahrenheit') {
-    return unit === 'celsius'
-      ? this._feelsLikeTempC
-      : this._feelsLikeTempC * 1.8 + 32;
+  feelslikeTemp() {
+    return this._feelsLikeTempC;
   }
   currentHumidity() {
     return this._humidity;
   }
   weathericon() {
-    return this._icon;
+    return this._icon.split('/').splice(3).join('/');
   }
 }

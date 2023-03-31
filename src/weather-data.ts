@@ -9,13 +9,11 @@ export const getWeatherData = async (location: string) => {
     );
     const data = await response.json();
     let buffer = dataHandler(data);
-    console.log(data);
-
     DOM.renderData(
-      buffer.currentTemp('celsius'),
+      buffer.currentTemp(),
       buffer.weatherCondition(),
       buffer.formatLocation(),
-      buffer.feelslikeTemp('celsius'),
+      buffer.feelslikeTemp(),
       buffer.currentHumidity(),
       buffer.weathericon()
     );

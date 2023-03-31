@@ -3,6 +3,7 @@ import { getWeatherData } from './weather-data';
 
 export const DOM = (() => {
   const form = querySelector('form'),
+    appName = querySelector('#app-name') as HTMLParagraphElement,
     loctionInput = querySelector('#location-input') as HTMLInputElement,
     weatherContent = querySelector('.weather-content'),
     extraInfo = querySelector('.extra-info'),
@@ -20,10 +21,18 @@ export const DOM = (() => {
     getWeatherData(loctionInput.value);
   };
 
-  const displayContent = () => {
-    form?.classList.remove('active');
-    weatherContent?.classList.add('active');
-    extraInfo?.classList.add('active-grid');
+  const displayContent = (action: 'show' | 'hide') => {
+    if (action === 'show') {
+      form?.classList.remove('active');
+      weatherContent?.classList.add('active');
+      extraInfo?.classList.add('active-grid');
+    }
+    if (action === 'hide') {
+      loctionInput.value = '';
+      form?.classList.add('active');
+      weatherContent?.classList.remove('active');
+      extraInfo?.classList.remove('active-grid');
+    }
   };
 
   const renderData = (
@@ -40,14 +49,18 @@ export const DOM = (() => {
     feelsTempNum.textContent = feelsLikeTemp.toString();
     humidityNum.textContent = humidity.toString();
     weatherIMG.src = icon;
-    displayContent();
+    displayContent('show');
   };
 
   const pageLoad = function () {
-    form?.classList.add('active');
+    displayContent('hide');
 
     form?.addEventListener('submit', (e) => {
       search(e);
+    });
+
+    appName.addEventListener('click', (e) => {
+      displayContent('hide');
     });
   };
 
